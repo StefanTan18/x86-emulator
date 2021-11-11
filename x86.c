@@ -39,6 +39,15 @@ int main(int argc, char * argv[]) {
         return 0;
     }
 
+    // Read File
+    char * line = NULL;
+    size_t len = 0;
+    ssize_t read;
+    while ((read = getline(&line, &len, fp)) != -1) {
+        printf("Retrieved line of length %zu:\n", read);
+        printf("%s", line);
+    }
+
     fclose(fp);
 
     byte codebyte;
